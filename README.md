@@ -1,4 +1,4 @@
-## Simple altimeter testing tool via serial port.
+### Simple altimeter testing tool via serial port.
 
 # How to use
 
