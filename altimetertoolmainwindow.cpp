@@ -149,7 +149,7 @@ void AltimeterToolMainWindow::onSerialRecive()
     //!Cleanup trash.
     while (static_cast<uint8_t>(m_serialBuffer.at(::first_package_header_position)) != ::first_package_header_value) {
 
-        qWarning() << "WARNING: AltimeterToolMainWindow::onSerialRecive -> Weard data recievd. Cleanup.";
+        qWarning() << "WARNING: AltimeterToolMainWindow::onSerialRecive -> Weird data recievd. Cleanup.";
         qDebug() << "BUFFER:" << m_serialBuffer.toHex().toUpper();
         if (m_serialBuffer.size() < 2) {
             return;
@@ -188,7 +188,7 @@ void AltimeterToolMainWindow::onSerialRecive()
         }
         return;
     default:
-        qWarning() << "WARNING: AltimeterToolMainWindow::onSerialRecive -> Weard data recievd: UNKNOWN message ID.";
+        qWarning() << "WARNING: AltimeterToolMainWindow::onSerialRecive -> Weird data recievd: UNKNOWN message ID.";
         qInfo() << "INFO: Data received:" << m_serialBuffer.toHex().toUpper();
         m_serialBuffer.remove(0, m_serialBuffer.at(::package_size_position));
         return;
