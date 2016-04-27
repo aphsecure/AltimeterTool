@@ -62,7 +62,7 @@ bool AltimeterHandler::processReplyData(QByteArray &data, unsigned int &altitude
     //! Address too.
     out >> valToCheck;
     if (Q_UNLIKELY(valToCheck != ::main_id)) {
-        qWarning() << "WARNING: AltimeterHandler::processReply -> Its weirdthat destination address:" << valToCheck << "!=" << ::main_id;
+        qWarning() << "WARNING: AltimeterHandler::processReply -> Its weird that destination address:" << valToCheck << "!=" << ::main_id;
     }
 
     //! Confirmation flag.
@@ -74,7 +74,7 @@ bool AltimeterHandler::processReplyData(QByteArray &data, unsigned int &altitude
     //! Message type.
     out >> valToCheck;
     if (Q_UNLIKELY(valToCheck != ::altimeter_status)) {
-        qWarning() << "WARNING: AltimeterHandler::processReply -> Its weirdthat message type:" << valToCheck << "!=" << ::altimeter_status;
+        qWarning() << "WARNING: AltimeterHandler::processReply -> Its weird that message type:" << valToCheck << "!=" << ::altimeter_status;
     }
 
     //! Data.
@@ -135,7 +135,7 @@ bool AltimeterHandler::processReplyType(QByteArray &data, unsigned int &type, un
     //! Address too.
     out >> valToCheck;
     if (Q_UNLIKELY(valToCheck != ::main_id)) {
-        qWarning() << "WARNING: AltimeterHandler::processReply -> Its weirdthat destination address:" << valToCheck << "!=" << ::main_id;
+        qWarning() << "WARNING: AltimeterHandler::processReply -> Its weird that destination address:" << valToCheck << "!=" << ::main_id;
     }
 
     //! Confirmation flag.
@@ -147,7 +147,7 @@ bool AltimeterHandler::processReplyType(QByteArray &data, unsigned int &type, un
     //! Message type.
     out >> valToCheck;
     if (Q_UNLIKELY(valToCheck != ::device_type_message)) {
-        qWarning() << "WARNING: AltimeterHandler::processReply -> Its weirdthat message type:" << valToCheck << "!=" << ::altimeter_status;
+        qWarning() << "WARNING: AltimeterHandler::processReply -> Its weird that message type:" << valToCheck << "!=" << ::altimeter_status;
     }
 
     //! Data.
@@ -177,7 +177,7 @@ bool AltimeterHandler::processReplyType(QByteArray &data, unsigned int &type, un
 bool AltimeterHandler::setNewAddress(QByteArray &data, unsigned int newAddress, unsigned int oldAddress)
 {
     if (Q_UNLIKELY(newAddress == oldAddress)) {
-        qWarning() << "WARNING:  AltimeterHandler::setNewAddress -> Its weirdthat news address == old address";
+        qWarning() << "WARNING:  AltimeterHandler::setNewAddress -> Its weird that news address == old address";
     }
     QDataStream in(&data, QIODevice::WriteOnly);
 
