@@ -177,7 +177,7 @@ void AltimeterToolMainWindow::onSerialRecive()
         else {
             m_serialBuffer.clear();
         }
-        return;
+        break;
     case ::altimeter_status :
         if (AltimeterHandler::processReplyData(m_serialBuffer, altitude, from)) {
             m_informationWidget->setAltitude(altitude);
@@ -186,14 +186,17 @@ void AltimeterToolMainWindow::onSerialRecive()
         else {
             m_serialBuffer.clear();
         }
-        return;
+        break;
     default:
         qWarning() << "WARNING: AltimeterToolMainWindow::onSerialRecive -> Weird data recievd: UNKNOWN message ID.";
         qInfo() << "INFO: Data received:" << m_serialBuffer.toHex().toUpper();
         m_serialBuffer.remove(0, m_serialBuffer.at(::package_size_position));
-        return;
+        break;
     }
-    m_serialBuffer.clear();
+
+    if (m_serialBuffer.size() >= ::service_info_size) {
+        onSerialRecive();
+    }
 }
 
 void AltimeterToolMainWindow::onSerialWrite(QByteArray data)
