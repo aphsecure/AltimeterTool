@@ -183,7 +183,7 @@ bool AltimeterHandler::setNewAddress(QByteArray &data, unsigned int newAddress, 
 
     in << ::first_package_header_value;
     in << ::second_package_header_value;
-    in << ::service_info_size + sizeof(uint8_t); //! uint8_t -> new address size.
+    in << static_cast<uint8_t>(::service_info_size + sizeof(uint8_t)); //! uint8_t -> new address size.
     in << ::main_id;
     in << static_cast<uint8_t>(oldAddress);
     in << ::without_confirmation;
